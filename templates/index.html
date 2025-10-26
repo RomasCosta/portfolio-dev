@@ -6,7 +6,7 @@
     <title>Portfólio - Desenvolvedor</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet"> <!-- seu CSS local -->
 </head>
 <body>
     <!-- Partículas de fundo -->
@@ -29,24 +29,21 @@
             <!-- Seção de descrição -->
             <section class="description-section">
                 <h2>Sobre Mim</h2>
-                <div class="description-text" id="description-text">{{ description }}</div>
+                <div class="description-text" id="description-text">
+                    Olá! Sou um desenvolvedor apaixonado por tecnologia e inovação. 🚀
+                </div>
                 <button class="edit-btn" onclick="toggleEdit()">
                     <i class="fas fa-edit"></i> Editar Descrição
                 </button>
                 
                 <div id="edit-form" style="display: none;">
-                    <textarea class="description-input" id="description-input" placeholder="Digite sua descrição aqui...">{{ description }}</textarea>
+                    <textarea class="description-input" id="description-input" placeholder="Digite sua descrição aqui...">Olá! Sou um desenvolvedor apaixonado por tecnologia e inovação. 🚀</textarea>
                     <button class="save-btn" onclick="saveDescription()">
                         <i class="fas fa-save"></i> Salvar
                     </button>
                     <button class="cancel-btn" onclick="cancelEdit()">
                         <i class="fas fa-times"></i> Cancelar
                     </button>
-                </div>
-                
-                <div class="loading" id="loading">
-                    <div class="spinner"></div>
-                    Salvando...
                 </div>
             </section>
 
@@ -125,14 +122,12 @@
                 <p class="footer-text">
                     <i class="fas fa-code"></i> 
                     Desenvolvido com <i class="fas fa-heart"></i> e muito <i class="fas fa-mug-hot"></i>
-
                 </p>
                 <p class="footer-date">
-                    <i class="fas fa-calendar-alt"></i> 
-                    Criado em {{ creation_date }}
+                    <i class="fas fa-calendar-alt"></i> Criado em 2025-10-26
                 </p>
                 <p class="footer-copyright">
-                    &copy; {{ current_year }} - Todos os direitos reservados
+                    &copy; 2025 - Todos os direitos reservados
                 </p>
             </div>
         </footer>
@@ -148,19 +143,15 @@
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 
-                // Tamanho aleatório
                 const size = Math.random() * 4 + 2;
                 particle.style.width = size + 'px';
                 particle.style.height = size + 'px';
                 
-                // Posição inicial aleatória
                 particle.style.left = Math.random() * 100 + '%';
                 
-                // Duração da animação aleatória
                 const duration = Math.random() * 3 + 4;
                 particle.style.animationDuration = duration + 's';
                 
-                // Delay aleatório
                 const delay = Math.random() * 6;
                 particle.style.animationDelay = delay + 's';
                 
@@ -168,62 +159,26 @@
             }
         }
 
-        // Funções para editar descrição
+        // Funções para editar descrição (somente front-end)
         function toggleEdit() {
-            const textDiv = document.getElementById('description-text');
-            const editForm = document.getElementById('edit-form');
-            const editBtn = document.querySelector('.edit-btn');
-            
-            textDiv.style.display = 'none';
-            editForm.style.display = 'block';
-            editBtn.style.display = 'none';
+            document.getElementById('description-text').style.display = 'none';
+            document.getElementById('edit-form').style.display = 'block';
+            document.querySelector('.edit-btn').style.display = 'none';
         }
 
         function cancelEdit() {
-            const textDiv = document.getElementById('description-text');
-            const editForm = document.getElementById('edit-form');
-            const editBtn = document.querySelector('.edit-btn');
-            
-            textDiv.style.display = 'block';
-            editForm.style.display = 'none';
-            editBtn.style.display = 'inline-block';
+            document.getElementById('description-text').style.display = 'block';
+            document.getElementById('edit-form').style.display = 'none';
+            document.querySelector('.edit-btn').style.display = 'inline-block';
         }
 
         function saveDescription() {
-            const description = document.getElementById('description-input').value;
-            const loading = document.getElementById('loading');
-            const editForm = document.getElementById('edit-form');
-            
-            loading.style.display = 'block';
-            editForm.style.display = 'none';
-            
-            fetch('/update_description', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ description: description })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    document.getElementById('description-text').textContent = description;
-                    document.getElementById('description-text').style.display = 'block';
-                    document.querySelector('.edit-btn').style.display = 'inline-block';
-                    loading.style.display = 'none';
-                }
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-                loading.style.display = 'none';
-                editForm.style.display = 'block';
-            });
+            const desc = document.getElementById('description-input').value;
+            document.getElementById('description-text').textContent = desc;
+            cancelEdit();
         }
 
-        // Inicializar quando a página carregar
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-        });
+        document.addEventListener('DOMContentLoaded', createParticles);
     </script>
 </body>
 </html>
