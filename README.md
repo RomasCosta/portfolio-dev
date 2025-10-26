@@ -1,51 +1,98 @@
-# Portfólio Desenvolvedor
+# Portfolio Terroso
 
-Um portfólio moderno e responsivo criado com Flask, usando cores terrosas e quentes com animações relacionadas à programação.
+Um portfólio moderno e elegante com tema terroso, desenvolvido em Flask.
 
-## Características
+## 🚀 Deploy no Vercel
 
-- 🎨 **Design Moderno**: Cores terrosas e quentes (marrom, bege, dourado)
-- 🚀 **Animações de Programação**: Código digitando, partículas flutuantes
-- 👤 **Avatar 3D Animado**: Avatar com efeitos de brilho e pulsação
-- ✏️ **Descrição Editável**: Campo para personalizar a descrição sobre você
-- 📱 **Responsivo**: Funciona perfeitamente em desktop e mobile
-- ⚡ **Sem Rolagem**: Layout otimizado para não precisar rolar a página
+### Pré-requisitos
+- Conta no [Vercel](https://vercel.com)
+- Conta no [GitHub](https://github.com)
 
-## Instalação
+### Passos para Deploy
 
-1. Clone ou baixe o projeto
-2. Instale as dependências:
-```bash
-pip install -r requirements.txt
+1. **Fazer upload do projeto para o GitHub:**
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git branch -M main
+   git remote add origin https://github.com/SEU_USUARIO/portfolio-terroso.git
+   git push -u origin main
+   ```
+
+2. **Conectar ao Vercel:**
+   - Acesse [vercel.com](https://vercel.com)
+   - Clique em "New Project"
+   - Importe o repositório do GitHub
+   - Configure as variáveis de ambiente (opcional)
+
+3. **Deploy automático:**
+   - O Vercel detectará automaticamente que é um projeto Python/Flask
+   - O deploy será feito automaticamente
+
+### 🔒 Segurança
+
+O projeto inclui várias medidas de segurança:
+
+- ✅ Validação de entrada de dados
+- ✅ Sanitização básica contra XSS
+- ✅ Limite de caracteres na descrição
+- ✅ Tratamento de erros
+- ✅ Configuração de produção
+- ✅ Arquivo .gitignore para proteger dados sensíveis
+
+### 📁 Estrutura do Projeto
+
+```
+portfolio-terroso/
+├── app.py                 # Aplicação Flask principal
+├── vercel.json           # Configuração do Vercel
+├── requirements.txt      # Dependências Python
+├── .gitignore           # Arquivos ignorados pelo Git
+├── description.json      # Dados da descrição (criado automaticamente)
+├── templates/
+│   └── index.html       # Template principal
+└── static/
+    └── styles.css       # Estilos CSS
 ```
 
-3. Execute o aplicativo:
+### 🛠️ Desenvolvimento Local
+
 ```bash
+# Instalar dependências
+pip install -r requirements.txt
+
+# Executar localmente
 python app.py
 ```
 
-4. Acesse no navegador: `http://localhost:5000`
+### 🌐 Acesso
 
-## Funcionalidades
+Após o deploy, seu portfólio estará disponível em:
+`https://SEU_PROJETO.vercel.app`
 
-- **Avatar Animado**: Avatar com ícone de código e animações de pulsação e brilho
-- **Partículas Flutuantes**: Partículas animadas no fundo que remetem à programação
-- **Código Digitando**: Animação de código Python sendo digitado
-- **Descrição Personalizável**: Edite sua descrição diretamente na página
-- **Seção de Habilidades**: Grid com ícones das principais tecnologias
-- **Design Responsivo**: Adapta-se a diferentes tamanhos de tela
+### 📝 Funcionalidades
 
-## Tecnologias Utilizadas
+- ✅ Design responsivo
+- ✅ Edição de descrição em tempo real
+- ✅ Animações CSS
+- ✅ Seção de habilidades
+- ✅ Links de redes sociais
+- ✅ Rodapé com créditos
+- ✅ Tema terroso elegante
 
-- **Backend**: Flask (Python)
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Ícones**: Font Awesome
-- **Fontes**: JetBrains Mono, Inter
-- **Animações**: CSS3 e JavaScript puro
+### 🔧 Personalização
 
-## Personalização
+Para personalizar o portfólio:
 
-- Edite a descrição padrão no arquivo `app.py`
-- Modifique as cores no CSS dentro do template
-- Adicione suas próprias habilidades na seção skills
-- Personalize o avatar alterando o ícone ou adicionando uma imagem
+1. **Alterar informações pessoais:** Edite o template `templates/index.html`
+2. **Modificar cores:** Ajuste as variáveis CSS em `static/styles.css`
+3. **Adicionar habilidades:** Modifique a seção de skills no HTML
+4. **Atualizar links sociais:** Altere os links na seção social
+
+### 📞 Suporte
+
+Se tiver problemas com o deploy, verifique:
+- Se todas as dependências estão no `requirements.txt`
+- Se o arquivo `vercel.json` está correto
+- Se não há erros nos logs do Vercel

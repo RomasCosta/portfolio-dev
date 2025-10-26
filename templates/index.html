@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Desenvolvedor</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <!-- Partículas de fundo -->
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="avatar-container">
+                <div class="avatar">
+                    <i class="fas fa-code"></i>
+                </div>
+            </div>
+            <h1 class="name">Desenvolvedor</h1>
+            <p class="title">Programador & Inovador</p>
+        </header>
+
+        <!-- Conteúdo principal -->
+        <main class="main-content">
+            <!-- Seção de descrição -->
+            <section class="description-section">
+                <h2>Sobre Mim</h2>
+                <div class="description-text" id="description-text">{{ description }}</div>
+                <button class="edit-btn" onclick="toggleEdit()">
+                    <i class="fas fa-edit"></i> Editar Descrição
+                </button>
+                
+                <div id="edit-form" style="display: none;">
+                    <textarea class="description-input" id="description-input" placeholder="Digite sua descrição aqui...">{{ description }}</textarea>
+                    <button class="save-btn" onclick="saveDescription()">
+                        <i class="fas fa-save"></i> Salvar
+                    </button>
+                    <button class="cancel-btn" onclick="cancelEdit()">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </div>
+                
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    Salvando...
+                </div>
+            </section>
+
+            <!-- Seção de código animado -->
+            <section class="code-section">
+                <h2>Código em Ação</h2>
+                <div class="code-display">
+                    <div class="code-line">
+                        <span class="keyword">def</span> <span class="function">criar_portfolio</span>():
+                    </div>
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Criando um portfólio incrível"</span>
+                    </div>
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> skill <span class="keyword">in</span> skills:
+                    </div>
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">desenvolver</span>(skill)
+                    </div>
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="string">"Sucesso!"</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="comment"># Sempre aprendendo e evoluindo</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="function">criar_portfolio</span>()<span class="cursor"></span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Seção de habilidades -->
+        <section class="skills-section">
+            <h2>Tecnologias & Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-python"></i></div>
+                    <div class="skill-name">Python</div>
+                </div>
+               
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+                    <div class="skill-name">Git</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <div class="skill-name">Database</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de redes sociais -->
+        <section class="social-section">
+            <h2>Conecte-se Comigo</h2>
+            <div class="social-links">
+                <a href="https://github.com/RomasCosta" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/rom%C3%A1rio-costa-5235bb20a/" target="_blank" rel="noopener noreferrer" 
+                    class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:romariocosta25@outlook.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contato</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Rodapé com créditos -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="footer-text">
+                    <i class="fas fa-code"></i> 
+                    Desenvolvido com <i class="fas fa-heart"></i> e muito <i class="fas fa-mug-hot"></i>
+
+                </p>
+                <p class="footer-date">
+                    <i class="fas fa-calendar-alt"></i> 
+                    Criado em {{ creation_date }}
+                </p>
+                <p class="footer-copyright">
+                    &copy; {{ current_year }} - Todos os direitos reservados
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Criar partículas animadas
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Tamanho aleatório
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Posição inicial aleatória
+                particle.style.left = Math.random() * 100 + '%';
+                
+                // Duração da animação aleatória
+                const duration = Math.random() * 3 + 4;
+                particle.style.animationDuration = duration + 's';
+                
+                // Delay aleatório
+                const delay = Math.random() * 6;
+                particle.style.animationDelay = delay + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Funções para editar descrição
+        function toggleEdit() {
+            const textDiv = document.getElementById('description-text');
+            const editForm = document.getElementById('edit-form');
+            const editBtn = document.querySelector('.edit-btn');
+            
+            textDiv.style.display = 'none';
+            editForm.style.display = 'block';
+            editBtn.style.display = 'none';
+        }
+
+        function cancelEdit() {
+            const textDiv = document.getElementById('description-text');
+            const editForm = document.getElementById('edit-form');
+            const editBtn = document.querySelector('.edit-btn');
+            
+            textDiv.style.display = 'block';
+            editForm.style.display = 'none';
+            editBtn.style.display = 'inline-block';
+        }
+
+        function saveDescription() {
+            const description = document.getElementById('description-input').value;
+            const loading = document.getElementById('loading');
+            const editForm = document.getElementById('edit-form');
+            
+            loading.style.display = 'block';
+            editForm.style.display = 'none';
+            
+            fetch('/update_description', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ description: description })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('description-text').textContent = description;
+                    document.getElementById('description-text').style.display = 'block';
+                    document.querySelector('.edit-btn').style.display = 'inline-block';
+                    loading.style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                loading.style.display = 'none';
+                editForm.style.display = 'block';
+            });
+        }
+
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+        });
+    </script>
+</body>
+</html>
