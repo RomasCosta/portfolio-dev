@@ -44,12 +44,6 @@ portfolio-terroso/
 
 Basta abrir o arquivo index.html no navegador.
 
-Para testar com servidor local (opcional):
-
-# Python 3
-python -m http.server 8000
-# Depois abra http://localhost:8000
-
 🌐 Acesso
 
 Após o deploy, seu portfólio estará disponível em:
