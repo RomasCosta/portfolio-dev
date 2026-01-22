@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio - Desenvolvedor</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet"> <!-- seu CSS local -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="styles.css" rel="stylesheet"> <!-- seu CSS local -->
+    <script src="script.js" defer></script>
 </head>
+
 <body>
     <!-- Partículas de fundo -->
     <div class="particles" id="particles"></div>
@@ -31,8 +36,8 @@
                 <h2>Sobre Mim</h2>
                 <div class="description-text" id="description-text">
                     ​"Entre o agito de uma conversa fluida e a calma de um ambiente leve,
-                     eu fico com os dois. Sou entusiasta da cultura: das telas de animação às páginas de livros diversos. 
-                     Valorizo momentos de tranquilidade e qualquer programa que alimente a alma com arte e suavidade."
+                    eu fico com os dois. Sou entusiasta da cultura: das telas de animação às páginas de livros diversos.
+                    Valorizo momentos de tranquilidade e qualquer programa que alimente a alma com arte e suavidade."
                 </div>
                 <!--<button class="edit-btn" onclick="toggleEdit()">
                     <i class="fas fa-edit"></i> Editar Descrição
@@ -60,13 +65,15 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Criando um portfólio incrível"</span>
                     </div>
                     <div class="code-line">
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> skill <span class="keyword">in</span> skills:
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> skill <span class="keyword">in</span>
+                        skills:
                     </div>
                     <div class="code-line">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">desenvolver</span>(skill)
                     </div>
                     <div class="code-line">
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="string">"Sucesso!"</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                            class="string">"Sucesso!"</span>
                     </div>
                     <div class="code-line">
                         <span class="comment"># Sempre aprendendo e evoluindo</span>
@@ -82,19 +89,33 @@
         <section class="skills-section">
             <h2>Tecnologias & Habilidades</h2>
             <div class="skills-grid">
+
                 <div class="skill-item">
-                    <div class="skill-icon"><i class="fab fa-python"></i></div>
-                    <div class="skill-name">Python</div>
+                    <a href="python/index.html" class="skill-link" target="_blank" rel="noopener noreferrer">
+                        <div class="skill-icon"><i class="fab fa-python"></i></div>
+                        <div class="skill-name">Python</div>
+                    </a>
                 </div>
-               
+
+
+
                 <div class="skill-item">
+                    <a href="vba/index.html" class="skill-link" target="_blank" rel="noopener noreferrer">
                     <div class="skill-icon"><i class="fa-regular fa-file-excel"></i></div>
                     <div class="skill-name">VBA</div>
+                    </a>
                 </div>
+
+
+
                 <div class="skill-item">
+                    <a href="#" class="skill-link" target="_blank" rel="noopener noreferrer"></a>
                     <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
                     <div class="skill-name">Code</div>
+                    </a>
                 </div>
+
+
             </div>
         </section>
 
@@ -106,8 +127,8 @@
                     <i class="fab fa-github"></i>
                     <span>GitHub</span>
                 </a>
-                <a href="https://www.linkedin.com/in/rom%C3%A1rio-costa-5235bb20a/" target="_blank" rel="noopener noreferrer" 
-                    class="social-link">
+                <a href="https://www.linkedin.com/in/rom%C3%A1rio-costa-5235bb20a/" target="_blank"
+                    rel="noopener noreferrer" class="social-link">
                     <i class="fab fa-linkedin"></i>
                     <span>LinkedIn</span>
                 </a>
@@ -122,7 +143,7 @@
         <footer class="footer">
             <div class="footer-content">
                 <p class="footer-text">
-                    <i class="fas fa-code"></i> 
+                    <i class="fas fa-code"></i>
                     Desenvolvido com <i class="fa-regular fa-heart"></i> e muito <i class="fas fa-mug-hot"></i>
                 </p>
                 <p class="footer-date">
@@ -134,53 +155,6 @@
             </div>
         </footer>
     </div>
-
-    <script>
-        // Criar partículas animadas
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                
-                const size = Math.random() * 4 + 2;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                
-                particle.style.left = Math.random() * 100 + '%';
-                
-                const duration = Math.random() * 3 + 4;
-                particle.style.animationDuration = duration + 's';
-                
-                const delay = Math.random() * 6;
-                particle.style.animationDelay = delay + 's';
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        // Funções para editar descrição (somente front-end)
-        function toggleEdit() {
-            document.getElementById('description-text').style.display = 'none';
-            document.getElementById('edit-form').style.display = 'block';
-            document.querySelector('.edit-btn').style.display = 'none';
-        }
-
-        function cancelEdit() {
-            document.getElementById('description-text').style.display = 'block';
-            document.getElementById('edit-form').style.display = 'none';
-            document.querySelector('.edit-btn').style.display = 'inline-block';
-        }
-
-        function saveDescription() {
-            const desc = document.getElementById('description-input').value;
-            document.getElementById('description-text').textContent = desc;
-            cancelEdit();
-        }
-
-        document.addEventListener('DOMContentLoaded', createParticles);
-    </script>
 </body>
+
 </html>

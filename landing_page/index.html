@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Landing Pages | Portfólio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #020617;
+            color: #e5e7eb;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Partículas */
+        #particles {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            bottom: -10px;
+            background: rgba(56, 189, 248, 0.6);
+            border-radius: 50%;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-120vh);
+                opacity: 0;
+            }
+        }
+
+        /* Conteúdo */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header i {
+            font-size: 52px;
+            color: #38bdf8;
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #cbd5f5;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        /* Card */
+        .card {
+            background: rgba(15, 23, 42, 0.9);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .card-image {
+            height: 160px;
+            background: linear-gradient(135deg, #38bdf8, #2563eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #020617;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            font-size: 14px;
+            color: #c7d2fe;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.2s ease;
+        }
+
+        .btn-view {
+            background: #38bdf8;
+            color: #020617;
+        }
+
+        .btn-view:hover {
+            background: #0ea5e9;
+        }
+
+        .btn-code {
+            background: #1e293b;
+            color: #e5e7eb;
+            border: 1px solid #334155;
+        }
+
+        .btn-code:hover {
+            background: #334155;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Partículas -->
+    <div id="particles"></div>
+
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <i class="fa-solid fa-layer-group"></i>
+            <h1>Landing Pages</h1>
+            <p>
+                Aqui estão algumas landing pages que venho desenvolvendo, focadas em
+                design moderno, performance e conversão.
+            </p>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid">
+
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-image">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Startup / SaaS</h3>
+                    <p>
+                        Landing page focada em apresentação de produto digital,
+                        com CTA claro e layout otimizado para conversão.
+                    </p>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-view">Ver página</a>
+                        <a href="#" class="btn btn-code">Código</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-image">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <div class="card-content">
+                    <h3>E-commerce</h3>
+                    <p>
+                        Página de vendas com destaque para produto,
+                        benefícios e chamada direta para compra.
+                    </p>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-view">Ver página</a>
+                        <a href="#" class="btn btn-code">Código</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-image">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Serviços</h3>
+                    <p>
+                        Landing page institucional para apresentação de serviços,
+                        ideal para freelancers e empresas.
+                    </p>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-view">Ver página</a>
+                        <a href="#" class="btn btn-code">Código</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            © 2026 · Portfólio de Landing Pages
+        </div>
+
+    </div>
+
+    <script>
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+
+                particle.style.left = Math.random() * 100 + '%';
+
+                const duration = Math.random() * 4 + 4;
+                particle.style.animationDuration = duration + 's';
+
+                const delay = Math.random() * 6;
+                particle.style.animationDelay = delay + 's';
+
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', createParticles);
+    </script>
+
+</body>
+
+</html>

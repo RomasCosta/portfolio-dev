@@ -43,12 +43,15 @@ body {
         transform: translateY(100vh) rotate(0deg);
         opacity: 0;
     }
+
     10% {
         opacity: 1;
     }
+
     90% {
         opacity: 1;
     }
+
     100% {
         transform: translateY(-100px) rotate(360deg);
         opacity: 0;
@@ -78,7 +81,7 @@ body {
     justify-content: center;
     font-size: 80px;
     color: #E8D5B7;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     animation: avatarPulse 3s ease-in-out infinite;
     position: relative;
     overflow: hidden;
@@ -97,18 +100,30 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
     animation: avatarShine 2s linear infinite;
 }
 
 @keyframes avatarPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
 }
 
 @keyframes avatarShine {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
 }
 
 .name {
@@ -116,7 +131,7 @@ body {
     font-weight: 700;
     color: #E8D5B7;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .title {
@@ -196,7 +211,8 @@ body {
     box-shadow: 0 0 10px rgba(205, 133, 63, 0.3);
 }
 
-.save-btn, .cancel-btn {
+.save-btn,
+.cancel-btn {
     padding: 10px 20px;
     border: none;
     border-radius: 20px;
@@ -218,7 +234,8 @@ body {
     border: 2px solid #D4A574;
 }
 
-.save-btn:hover, .cancel-btn:hover {
+.save-btn:hover,
+.cancel-btn:hover {
     transform: translateY(-1px);
 }
 
@@ -258,20 +275,44 @@ body {
     animation: typeIn 0.5s ease forwards;
 }
 
-.code-line:nth-child(1) { animation-delay: 0.5s; }
-.code-line:nth-child(2) { animation-delay: 1s; }
-.code-line:nth-child(3) { animation-delay: 1.5s; }
-.code-line:nth-child(4) { animation-delay: 2s; }
-.code-line:nth-child(5) { animation-delay: 2.5s; }
-.code-line:nth-child(6) { animation-delay: 3s; }
-.code-line:nth-child(7) { animation-delay: 3.5s; }
-.code-line:nth-child(8) { animation-delay: 4s; }
+.code-line:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.code-line:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.code-line:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+.code-line:nth-child(4) {
+    animation-delay: 2s;
+}
+
+.code-line:nth-child(5) {
+    animation-delay: 2.5s;
+}
+
+.code-line:nth-child(6) {
+    animation-delay: 3s;
+}
+
+.code-line:nth-child(7) {
+    animation-delay: 3.5s;
+}
+
+.code-line:nth-child(8) {
+    animation-delay: 4s;
+}
 
 @keyframes typeIn {
     from {
         opacity: 0;
         transform: translateX(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -288,14 +329,33 @@ body {
 }
 
 @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
 }
 
-.keyword { color: #CD853F; }
-.string { color: #D4A574; }
-.comment { color: #8B7355; }
-.function { color: #A0522D; }
+.keyword {
+    color: #CD853F;
+}
+
+.string {
+    color: #D4A574;
+}
+
+.comment {
+    color: #8B7355;
+}
+
+.function {
+    color: #A0522D;
+}
 
 /* Skills section */
 .skills-section {
@@ -317,7 +377,7 @@ body {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 20px;
 }
 
@@ -354,15 +414,15 @@ body {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    
+
     .name {
         font-size: 2rem;
     }
-    
+
     .title {
         font-size: 1.2rem;
     }
-    
+
     .avatar {
         width: 150px;
         height: 150px;
@@ -390,7 +450,9 @@ body {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Social section */
@@ -414,13 +476,14 @@ body {
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
+    padding: 20px;
     flex-wrap: wrap;
 }
 
 .social-link {
     background: rgba(0, 0, 0, 0.2);
-    padding: 20px 30px;
+    padding: 10px 20px;
     border-radius: 15px;
     text-decoration: none;
     color: #E8D5B7;
@@ -430,7 +493,9 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    min-width: 120px;
+    min-width: 140px;
+    flex: 1;
+    max-width: 200px;
 }
 
 .social-link:hover {
@@ -441,7 +506,7 @@ body {
 }
 
 .social-link i {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #D4A574;
 }
 
@@ -468,7 +533,9 @@ body {
     align-items: center;
 }
 
-.footer-text, .footer-date, .footer-copyright {
+.footer-text,
+.footer-date,
+.footer-copyright {
     color: #E8D5B7;
     font-size: 1rem;
     margin: 0;
@@ -484,8 +551,15 @@ body {
 }
 
 @keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
 }
 
 .footer-copyright {
@@ -499,17 +573,33 @@ body {
     .social-links {
         gap: 20px;
     }
-    
+
     .social-link {
         min-width: 100px;
         padding: 15px 20px;
     }
-    
+
     .social-link i {
         font-size: 2rem;
     }
-    
+
     .social-link span {
         font-size: 1rem;
     }
+}
+
+.skill-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.skill-item {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }

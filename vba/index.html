@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VBA | Meu Projeto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="style.css" rel="stylesheet"> <!-- seu CSS local -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Partículas -->
+    <div id="particles"></div>
+
+    <!-- Conteúdo -->
+    <div class="container">
+        <div class="header">
+            <i class="fa-solid fa-file-excel"></i>
+            <h1>VBA</h1>
+        </div>
+
+        <div class="card">
+            <!-- Seção de código animado -->
+            <section class="code-section">
+                <h2>Automação SAP com VBA</h2>
+
+                <div class="code-display">
+
+                    <div class="code-line">
+                        <span class="keyword">Sub</span> <span class="function">CriarME01</span>()
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">Dim</span> ws <span class="keyword">As</span>
+                        Worksheet
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">Set</span> ws = ThisWorkbook.Sheets(<span
+                            class="string">"LOF"</span>)
+                    </div>
+
+                    <br>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">Dim</span> ultimaLinha <span
+                            class="keyword">As</span> Long
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;ultimaLinha = ws.Cells(ws.Rows.Count, <span
+                            class="number">1</span>).End(xlUp).Row
+                    </div>
+
+                    <br>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">If Not</span> <span
+                            class="function">IsObject</span>(Appl) <span class="keyword">Then</span>
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">Set</span> SapGuiAuto =
+                        <span class="function">GetObject</span>(<span class="string">"SAPGUI"</span>)
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">Set</span> Appl =
+                        SapGuiAuto.GetScriptingEngine
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">End If</span>
+                    </div>
+
+                    <br>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;session.FindById(<span class="string">"wnd[0]/tbar[0]/okcd"</span>).Text
+                        = <span class="string">"/n me01"</span>
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;session.FindById(<span class="string">"wnd[0]"</span>).sendVKey <span
+                            class="number">0</span>
+                    </div>
+
+                    <br>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">For</span> i = <span class="number">2</span> <span
+                            class="keyword">To</span> ultimaLinha
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">On Error Resume
+                            Next</span>
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;session.FindById(<span
+                            class="string">"ctxtEORD-MATNR"</span>).Text = ws.Cells(i, <span
+                            class="number">1</span>).Value
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;session.FindById(<span
+                            class="string">"ctxtEORD-LIFNR"</span>).Text = ws.Cells(i, <span
+                            class="number">3</span>).Value
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;session.FindById(<span
+                            class="string">"wnd[0]"</span>).sendVKey <span class="number">11</span>
+                    </div>
+
+                    <br>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">If</span> typeMessage
+                        &lt;&gt; <span class="string">"S"</span> <span class="keyword">Then</span>
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ws.Cells(i, <span
+                            class="string">"G"</span>).Value = <span class="string">"Erro"</span>
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">Else</span>
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ws.Cells(i, <span
+                            class="string">"G"</span>).Value = <span class="string">"Sucesso"</span>
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">End If</span>
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">Next</span> i
+                    </div>
+
+                    <br>
+
+                    <div class="code-line">
+                        <span class="keyword">End Sub</span><span class="cursor"></span>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!--  <button class="edit-btn" onclick="toggleEdit()">Editar descrição</button> 
+
+            <div id="edit-form">
+                <textarea id="description-input">
+VBA (Visual Basic for Applications) é utilizado para automatizar tarefas no Excel
+e em outros aplicativos do Microsoft Office, permitindo criação de macros,
+integração com sistemas e ganho significativo de produtividade.
+                </textarea>
+
+                <div class="form-actions">
+                    <button class="save-btn" onclick="saveDescription()">Salvar</button>
+                    <button class="cancel-btn" onclick="cancelEdit()">Cancelar</button>
+                </div> 
+            </div> -->
+        </div>
+    </div>
+</body>
+
+</html>

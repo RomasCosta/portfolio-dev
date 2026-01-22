@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Python | Meu Projeto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome (ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="style.css" rel="stylesheet"> <!-- seu CSS local -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Partículas -->
+    <div id="particles"></div>
+
+    <!-- Conteúdo -->
+    <div class="container">
+        <div class="header">
+            <i class="fab fa-python"></i>
+            <h1>Python</h1>
+        </div>
+
+        <div class="card">
+            <!--  <h2>Descrição</h2> -->
+
+            <!--<p id="description-text" class="description">-->
+            <!-- Seção de código animado -->
+            <section class="code-section">
+                <h2>Exemplo de Backend com Flask</h2>
+
+                <div class="code-display">
+
+                    <div class="code-line">
+                        <span class="keyword">from</span> flask <span class="keyword">import</span>
+                        <span class="function">Flask</span>, render_template, request
+                    </div>
+
+                    <div class="code-line">
+                        <span class="variable">app</span> = <span class="function">Flask</span>(__name__)
+                    </div>
+
+                    <div class="code-line">
+                        <span class="variable">tarefas</span> = []
+                    </div>
+
+                    <div class="code-line">
+                        <span class="variable">id_counter</span> = <span class="number">1</span>
+                    </div>
+
+                    <br>
+
+                    <div class="code-line">
+                        <span class="keyword">def</span> <span class="function">adicionar_tarefa</span>(texto):
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">global</span> id_counter
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">tarefas</span>.append({
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"id"</span>: id_counter,
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"texto"</span>: texto,
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"completa"</span>: <span
+                            class="keyword">False</span>
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;})
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;id_counter += <span class="number">1</span>
+                    </div>
+
+                    <br>
+
+                    <div class="code-line">
+                        <span class="decorator">@app.route</span>(<span class="string">"/"</span>)
+                    </div>
+
+                    <div class="code-line">
+                        <span class="keyword">def</span> <span class="function">index</span>():
+                    </div>
+
+                    <div class="code-line">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>
+                        <span class="function">render_template</span>(
+                        <span class="string">"index.html"</span>, tarefas=tarefas)
+                    </div>
+
+                    <br>
+
+                    <div class="code-line">
+                        <span class="comment"># Aplicação Flask simples para controle de tarefas</span>
+                    </div>
+
+                    <div class="code-line">
+                        <span class="variable">app</span>.<span class="function">run</span>()<span
+                            class="cursor"></span>
+                    </div>
+
+                </div>
+            </section>
+
+            <!--  </p> -->
+
+            <!--<button class="edit-btn" onclick="toggleEdit()">Editar descrição</button>-->
+
+            <!--<div id="edit-form">
+                <textarea id="description-input">
+Python é uma linguagem de programação versátil, amplamente utilizada em automação,
+análise de dados, desenvolvimento web e inteligência artificial.
+                </textarea>
+
+                <div class="form-actions">
+                    <button class="save-btn" onclick="saveDescription()">Salvar</button>
+                    <button class="cancel-btn" onclick="cancelEdit()">Cancelar</button>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</body>
+
+</html>
